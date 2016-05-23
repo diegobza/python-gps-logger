@@ -8,12 +8,13 @@ session = gps.gps("localhost", "2947")
 session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
 
 config = {
-    'user': 'tatutrack',
-    'password': 'tiger',
-    'host': '127.0.0.1',
-    'database': 'employees',
-    'raise_on_warnings': True,
+    'user': 'dondestou',
+    'password': 'J7WAisfXoyu9nq4iYr',
+    'host': 'lab.tatulab.com',
+    'database': 'dondestas',
 }
+
+cnx = mysql.connector.connect(**config)
 
 while True:
     try:
