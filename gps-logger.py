@@ -31,10 +31,6 @@ while True:
                 dados_leitura = ('1', report.lat, report.lon, report.time, report.speed)
                 cursor.execute(add_leitura, dados_leitura)
                 cnx.commit()
-                print report.lat
-                print report.lon
-                print report.time
-                print report.speed
     except KeyError:
         pass
     except KeyboardInterrupt:
