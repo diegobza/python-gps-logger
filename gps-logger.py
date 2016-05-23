@@ -2,9 +2,18 @@
 # -*- coding: UTF-8 -*-
 
 import gps
+import mysql.connector
 
 session = gps.gps("localhost", "2947")
 session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
+
+config = {
+    'user': 'tatutrack',
+    'password': 'tiger',
+    'host': '127.0.0.1',
+    'database': 'employees',
+    'raise_on_warnings': True,
+}
 
 while True:
     try:
@@ -15,6 +24,8 @@ while True:
         if report['class'] == 'TPV':
             if hasattr(report, 'time'):
                 print report.time
+                print report.lat
+                print report.lon
     except KeyError:
         pass
     except KeyboardInterrupt:
