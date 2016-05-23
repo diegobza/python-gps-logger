@@ -28,6 +28,8 @@ while True:
                 print report.lat
             if hasattr(report, 'lon'):
                 print report.lon
+            if hasattr(report, 'speed'):
+                print report.speed
     except KeyError:
         pass
     except KeyboardInterrupt:
