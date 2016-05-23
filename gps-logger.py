@@ -15,6 +15,10 @@ config = {
 }
 
 cnx = mysql.connector.connect(**config)
+cursor = cnx.cursor()
+add_leitura = ("INSERT INTO leitura "
+               "(dispositivo, latitude, longitude, horario, valocidade) "
+               "VALUES (%s, %s, %s, %s, %s)")
 
 while True:
     try:
@@ -24,6 +28,9 @@ while True:
         # print report
         if report['class'] == 'TPV':
             if hasattr(report, 'lat') and hasattr(report, 'lon') and hasattr(report, 'time') and hasattr(report, 'speed'):
+                dados_leitura = ('1', report.lat, report.lon, report.time, report.speed)
+                cursor.execute(add_leitura, dados_leitura)
+                cnx.commit()
                 print report.lat
                 print report.lon
                 print report.time
