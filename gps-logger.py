@@ -23,15 +23,11 @@ while True:
         # To see all report data, uncomment the line below
         # print report
         if report['class'] == 'TPV':
-            if
-                hasattr(report, 'lat') and
-                hasattr(report, 'lon') and
-                hasattr(report, 'time') and
-                hasattr(report, 'speed'):
-                    print report.lat
-                    print report.lon
-                    print report.time
-                    print report.speed
+            if hasattr(report, 'lat') and hasattr(report, 'lon') and hasattr(report, 'time') and hasattr(report, 'speed'):
+                print report.lat
+                print report.lon
+                print report.time
+                print report.speed
     except KeyError:
         pass
     except KeyboardInterrupt:
