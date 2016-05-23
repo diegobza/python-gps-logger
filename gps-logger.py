@@ -17,7 +17,7 @@ config = {
 cnx = mysql.connector.connect(**config)
 cursor = cnx.cursor()
 add_leitura = ("INSERT INTO leitura "
-               "(dispositivo, latitude, longitude, horario, valocidade) "
+               "(dispositivo, latitude, longitude, horario, velocidade) "
                "VALUES (%s, %s, %s, %s, %s)")
 
 while True:
